@@ -8,10 +8,10 @@
 >
 - Project/Tool Purpose: Discover your dam of interest and how they are changing ur river flow.
 - <p>Project/Tool {Input} and [Output]:</p>
-  <p>{USGS Gage Peak Flow Data, NOAA Rain Gage Data} </p> 
-  <p>--></p>
-  <p>[how cumulative rainfall effect river peak flow]</p>
-- Example Site Location: Gnesee River
-- Project Duration:
+>  <p>{USGS Gage Peak Flow Data, NOAA Rain Gage Data} </p> 
+>  <p>--></p>
+>  <p>[how cumulative rainfall effect river peak flow]</p>
+>- Example Site Location: Gnesee River
+>- Project Duration:
 
 test
