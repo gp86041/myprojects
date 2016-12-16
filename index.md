@@ -1,5 +1,5 @@
 # Welcome to Jeff Pu's Project Gallery! 
->Here is where you can see a list of tools I developed for various purposes.
+>Here is where you can see a list of coding tools I developed for various purposes.
 >Last Updated 12/15/2016, While it is freaking snowing outside like crazy!!!
 
 ---
@@ -9,4 +9,4 @@
 
 
 
-test
+More to come....
