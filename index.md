@@ -5,7 +5,7 @@
 ---
 ---
 
-## Project 1 - [How does Dams change river hydrology? (Done in R)](https://gp86041.github.io/gepuprojects.github.io/project1).
+## [Project 1 - How does Dams change river hydrology? (Done in R)](https://gp86041.github.io/gepuprojects.github.io/project1).
 
 
 
