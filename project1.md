@@ -1,4 +1,4 @@
-## Project 1 - How does Dams change river hydrology? (Done in R), [Source Code](https://github.com/gp86041/gepuprojects.github.io/edit/project1_files/project1.r)
+## Project 1 - How does Dams change river hydrology? (Done in R), [Source Code](https://github.com/gp86041/gepuprojects.github.io/project1_files/project1.r)
 
 
 - Project/Tool Purpose: Discover your dam of interest and how they are changing ur river flow.
