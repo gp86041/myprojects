@@ -14,7 +14,7 @@ According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morri
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/Mount_Morris_Dam_pic1.jpg" height="200" width="250">
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/mt-morris-dam-crossing_pic2.jpg" height="200" width="250">
 
-Here is where everything is.
+Here is where everything is. Red label is the USGS flow gage station. Blue label is the dam location.
 
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
