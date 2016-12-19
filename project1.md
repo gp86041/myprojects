@@ -16,8 +16,7 @@ According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morri
 
 Here is where everything is.
 
-mapping:
-	provider: google_static
+<iframe src="https://www.google.com/maps/d/embed?mid=1ELysbd_HcyENvsuK5auBFbFpwZ0" width="640" height="480"></iframe>
 
 More to come....
 
