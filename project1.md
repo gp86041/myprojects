@@ -6,11 +6,16 @@
 - Example Site Location: Genesee River
 - Project Duration: 1926-2015
 
-First, let's get farmilar with the site background. According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
+### Getting Farmiliar with the site
+
+According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
 
 
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/Mount_Morris_Dam_pic1.jpg" height="200" width="250">
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/mt-morris-dam-crossing_pic2.jpg" height="200" width="250">
+
+Here is where everything is.
+
 
 
 More to come....
