@@ -7,7 +7,7 @@
 - Project Duration: 1926-2015
 - **PLEASE note: you would need some minimum R and R Studio knowledge to use this tool.**
 
-### Getting Farmiliar with the site
+### Section 1. Getting Farmiliar with the site
 
 According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
 
@@ -19,7 +19,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
-### Getting data input and orgnize them
+### Section 2. Getting data input and orgnize them. If you do not wish to go through this section, you can download data input for peak flow and precipitation directly. Then move on to the next section.  
 
 - USGS Peak Flow Data
    1. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
@@ -32,8 +32,8 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
    ```
    5. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
    <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
-   6. 
-   
+
+-    
    
    
    
