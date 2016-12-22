@@ -31,7 +31,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
    View(peakflow)
    ```
    5. Upon excuting the codes above, you will see something like this:
-<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1100">
+<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
    
    
    
