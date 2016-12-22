@@ -23,6 +23,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 ### If you do not wish to go through this section, you can download data input for peak flow and precipitation directly. Then move on to the next section. ###
 
 **1. USGS Peak Flow Data**
+
 - Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
 - Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
 - Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly.
