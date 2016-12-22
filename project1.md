@@ -27,10 +27,9 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
    2. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
    3. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly.
    4. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
- ```
- peakflow <- read.delim("~/Downloads/peakflow.txt") #Change your file path accordingly.
- ```
- ```
+```
+ peakflow <- read.delim("~/Downloads/peakflow.txt");
+ ##Remember to change your file path accordingly above;
  View(peakflow)
 ```
    5. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
