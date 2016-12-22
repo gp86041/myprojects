@@ -22,7 +22,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 - USGS Peak Flow Data
    1. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays       the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
-   2. 
+   2. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
 
 More to come....
 
