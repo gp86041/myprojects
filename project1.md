@@ -29,12 +29,12 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
    4. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
    
 ```{.r}
- peakflow <- read.delim("~/Downloads/peakflow.txt"); ##Remember to change your file path accordingly above
+ peakflow <- read.delim("~/Downloads/peakflow.txt"); ##Remember to change your file path accordingly
  View(peakflow)
 ```
 
    5. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
-   <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
+ <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
 
 -    
    
