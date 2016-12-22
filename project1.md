@@ -20,7 +20,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
 ### Section 2. Getting data input and orgnize them. ###
-### If you do not wish to go through this section, you can download data input for peak flow and precipitation directly. Then move on to the next section. ###
+### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to the next section. ###
 
 **USGS Peak Flow Data**
 
