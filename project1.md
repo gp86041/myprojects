@@ -29,7 +29,8 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
    4. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
  ```
  peakflow <- read.delim("~/Downloads/peakflow.txt") #Change your file path accordingly.
- 
+ ```
+ ```
  View(peakflow)
 ```
    5. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
