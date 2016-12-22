@@ -20,7 +20,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
 ### Section 2. Getting data input and orgnize them. 
-> If you do not wish to go through this section, you can download data input for peak flow and precipitation directly. Then move on to the next section.  
+### If you do not wish to go through this section, you can download data input for peak flow and precipitation directly. Then move on to the next section.  
 
 - USGS Peak Flow Data
    1. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
