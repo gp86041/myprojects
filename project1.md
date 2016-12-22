@@ -5,6 +5,7 @@
 - Project/Tool {Input} and [Output]: {USGS Gage Peak Flow Data, NOAA Rain Gage Data} --> [how cumulative rainfall effect river peak flow]
 - Example Site Location: Genesee River
 - Project Duration: 1926-2015
+- **PLEASE note: you would need some minimum R knowledge to use this tool.**
 
 ### Getting Farmiliar with the site
 
@@ -21,8 +22,19 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 ### Getting data input
 
 - USGS Peak Flow Data
-   1. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays       the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
+   1. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
    2. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
+   3. Once the data is downloaded, first mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R directly.
+   
+   
+   
+   
+   
+   
+   
+
+
+
 
 More to come....
 
