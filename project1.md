@@ -24,17 +24,17 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 **USGS Peak Flow Data**
 
-- Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
-- Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
-- Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly.
-- Now, the peakflow data is ready for input, you can import the text file by typing below in R:
+- I. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
+- II. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
+- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly.
+- VI. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
 
 ```{.r}
 peakflow <- read.delim("~/Downloads/peakflow.txt"); ##Remember to change your file path accordingly
 View(peakflow)
 ```
 
-- Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
+- V. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
 
 -    
