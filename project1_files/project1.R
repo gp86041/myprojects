@@ -11,21 +11,19 @@ movsum<-function(x){
 }
 
 test<-data.frame(climate[,1],
-            as.numeric(movsum(climate[,2])),
-            climate[,3],
-            as.numeric(movsum(climate[,4])),
-            climate[,5:6])
-
-colnames(test)<-colnames(climate)
+            as.numeric(movsum(climate[,2])))
 
 
 test2<-data.frame(genesseall,
-                  test[match(genesseall[,1],climate[,1]),2:6])
+                  test[match(genesseall[,1],climate[,1]),2])
+
 test2[is.na(test2)]<-0
 
 test3<-cor(test2,method="spearman")
 
-print(test3[2,3])
+
+print(test2)
+#print(test3[2,3])
 }
 
 
