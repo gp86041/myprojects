@@ -37,7 +37,11 @@ View(peakflow)
 - V. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
 
--    
+- VI. The data we will need is in the columns of "peak_dt" (date) and "peak_va" (peak flow).
+
+**NOAA Precipitation Data (at Rochester Airport)**
+
+-I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport. 
    
    
    
