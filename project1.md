@@ -41,12 +41,11 @@ View(peakflow)
 
 **NOAA Precipitation Data (at Rochester Airport)**
 
-- I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport, select the option with "Comma Delimited"
-
+- I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport, select the option with "Comma Delimited". 
 - II. Download all weather gage data by clicking on the text file (you will see a similar screen like below (click on image to zoom in):
-<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/location.jpg" height="300" width="400"> Rename your file as 'project1_climatel'.
+<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/location.jpg" height="300" width="400">
 
-- III. Once the data is downloaded, you can import the text file by typing below in R:
+- III. Once the data is downloaded,  rename your file as 'project1_climatel'. You can import the text file by typing below in R:
 
 ```{.r}
 #install package 'readr' before running the script below
