@@ -26,11 +26,11 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 - I. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
 - II. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
-- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly.
+- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly. Rename your file as 'project1_genesseall'.
 - VI. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
 
 ```{.r}
-peakflow <- read.delim("~/Downloads/peakflow.txt"); ##Remember to change your file path accordingly
+peakflow <- read.delim("~/Downloads/project1_genesseall.txt"); ##Remember to change your file path accordingly
 View(peakflow)
 ```
 
@@ -42,11 +42,17 @@ View(peakflow)
 **NOAA Precipitation Data (at Rochester Airport)**
 
 - I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport, select the option with "Comma Delimited"
-- II. Download all weather gage data. 
+- II. Download all weather gage data by clicking on the text file (you will see a similar screen like below:
+<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/noaa_data_location.jpg" height="500" width="500">
 - III. Once the data is downloaded, you can import the text file by typing below in R:
-   
-   
-   
+
+```{.r}
+#install package 'readr' before running the script below
+library(readr)
+precip <- read_csv("C:/Users/jeffj/Downloads/CDO509327307530.txt") ##Remember to change your file path accordingly
+View(CDO509327307530)
+```
+
 
 
 
