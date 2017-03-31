@@ -44,7 +44,7 @@ View(peakflow)
 - I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport, select the option with "Comma Delimited"
 
 - II. Download all weather gage data by clicking on the text file (you will see a similar screen like below:
-<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/noaa_data_location.jpg" height="500" width="500">
+<img src="https://gp86041.github.io/project1_files/noaa_data_location.JPG">
 
 - III. Once the data is downloaded, you can import the text file by typing below in R:
 
