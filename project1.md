@@ -46,12 +46,12 @@ View(peakflow)
 
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/location.jpg" height="300" width="400">
 
-- III. Once the data is downloaded,  rename your file as 'project1_climatel'. You can import the text file by typing below in R:
+- III. Once the data is downloaded,  rename your file as 'project1_climate'. You can import the text file by typing below in R:
 
 ```{.r}
 #install package 'readr' before running the script below
 library(readr)
-precip <- read_csv("C:/Users/jeffj/Downloads/project1_climatel.txt") ##Remember to change your file path accordingly
+precip <- read_csv("C:/Users/jeffj/Downloads/project1_climate.txt") ##Remember to change your file path accordingly
 View(project1_climatel)
 ```
 - V. Upon excuting the codes above, you will be able to import the gage data from the airport.
