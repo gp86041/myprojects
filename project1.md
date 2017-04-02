@@ -19,8 +19,8 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
-### Section 2. Getting data input and orgnize them. ###
-### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to the next section. ###
+### Section 2. Getting data input. ###
+### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to Section 4. ###
 
 **USGS Peak Flow Data**
 
@@ -30,14 +30,15 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 - VI. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
 
 ```{.r}
-peakflow <- read.delim("~/Downloads/project1_genesseall.txt"); ##Remember to change your file path accordingly
+genesseallm <- read.delim("~/Downloads/project1_genesseall.txt"); ##Remember to change your file path accordingly
+##here we rename out peakflow data as "genesseallm"
 View(peakflow)
 ```
 
 - V. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
 
-- VI. The data we will need is in the columns of "peak_dt" (date) and "peak_va" (peak flow).
+- VI. The data we will need is in the columns of "**peak_dt**" (date) and "**peak_va**" (peak flow).
 
 **NOAA Precipitation Data (at Rochester Airport)**
 
@@ -51,16 +52,35 @@ View(peakflow)
 ```{.r}
 #install package 'readr' before running the script below
 library(readr)
-precip <- read_csv("C:/Users/jeffj/Downloads/project1_climate.txt") ##Remember to change your file path accordingly
+climate <- read_csv("C:/Users/jeffj/Downloads/project1_climate.txt") ##Remember to change your file path accordingly
+##here we rename out peakflow data as "climate"
 View(project1_climatel)
 ```
 - V. Upon excuting the codes above, you will be able to import the gage data from the airport.
 
-- VI. The data we will need is in the columns of "YEARMODA" (date) and "PRCP" (precipitation in inches).
+- VI. The data we will need is in the columns of "**YEARMODA**" (date) and "**PRCP**" (precipitation in inches).
 
-Once you have both of your peakflow and precipitation data ready, please remember to recognize your date columns in **geneseeallm** and **climate** datasets with the  **as.Date** function. Here are some [instructions](https://www.r-bloggers.com/date-formats-in-r/).
+
+###Section 3. Data Organization ###
+
+- I. Once you have both of your peakflow and precipitation data ready, let's start organizing the data by cleaning them up a bit. 
+- II. For the **climate** data, there are two tasks which need to be done:
+	- II.I extract only "**YEARMODA**" (date) and "**PRCP**" (precipitation) columns.
+	- II.II remove the last "G" symbol in the **PRCP** column, and then replace all 99.9 values with 0 values (replace with 0 instead of null because it will be easier for later correlation analysis).
+```{.r}
+#II.I
+climate<-data.frame(climate$YEARMODA, climate$PRCP)
+#II.II
+climate$PRCP<-substr(climate$PRCP, 1, 4) 
+#here we ignore the last letter for records in the PRCP column
+climate$PRCP([climate$PRCP==99.9])<-0
+#replace all 99.9 values with 0 values
+```
+
+- III. For the **geneseeallm** data, you would need to extract only the columns of "**peak_dt**" (date) and "**peak_va**" (peak flow).
 
 ----------
+
 
 
 More to come....
