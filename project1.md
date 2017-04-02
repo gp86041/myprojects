@@ -68,7 +68,7 @@ Now you are ready to organize the data.
 
 ---
 
-###Section 3. Data Organization
+### Section 3. Data Organization
 
 Here we are going to organize our data before the analysis.
 
