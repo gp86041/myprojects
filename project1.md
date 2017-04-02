@@ -61,7 +61,7 @@ View(project1_climatel)
 - VI. The data we will need is in the columns of "**YEARMODA**" (date) and "**PRCP**" (precipitation in inches).
 
 
-###Section 3. Data Organization ###
+###Section 3. Data Organization
 
 - I. Once you have both of your peakflow and precipitation data ready, let's start organizing the data by cleaning them up a bit. 
 - II. For the **climate** data, there are two tasks which need to be done:
