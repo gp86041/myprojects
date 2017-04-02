@@ -26,7 +26,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 - I. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
 - II. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
-- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly. Rename your file as 'project1_genesseall'.
+- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly. Rename your file as '**project1_genesseall**'.
 - VI. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
 
 ```{.r}
@@ -46,7 +46,7 @@ View(peakflow)
 
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/location.jpg" height="300" width="400">
 
-- III. Once the data is downloaded,  rename your file as 'project1_climate'. You can import the text file by typing below in R:
+- III. Once the data is downloaded,  rename your file as '**project1_climate**'. You can import the text file by typing below in R:
 
 ```{.r}
 #install package 'readr' before running the script below
@@ -58,7 +58,9 @@ View(project1_climatel)
 
 - VI. The data we will need is in the columns of "YEARMODA" (date) and "PRCP" (precipitation in inches).
 
+Once you have both of your peakflow and precipitation data ready, please remember to recognize your date columns in **geneseeallm** and **climate** datasets with the  **as.Date** function. Here are some [instructions](https://www.r-bloggers.com/date-formats-in-r/).
 
+----------
 
 
 More to come....
