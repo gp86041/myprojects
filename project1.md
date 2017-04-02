@@ -7,6 +7,8 @@
 - Project Duration: 1926-2015
 - **PLEASE note: you would need some minimum R and R Studio knowledge to use this tool.**
 
+---
+
 ### Section 1. Getting Farmiliar with the site
 
 According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
@@ -18,6 +20,8 @@ According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morri
 Here is where everything is. **_Red_** label is the USGS flow gage station. **_Blue_** label is the dam location.
 
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
+
+---
 
 ### Section 2. Getting data input. ###
 ### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to Section 4. ###
@@ -60,8 +64,13 @@ View(project1_climatel)
 
 - VI. The data we will need is in the columns of "**YEARMODA**" (date) and "**PRCP**" (precipitation in inches).
 
+Now you are ready to organize the data.
+
+---
 
 ###Section 3. Data Organization
+
+Here we are going to organize our data before the analysis.
 
 - I. Once you have both of your peakflow and precipitation data ready, let's start organizing the data by cleaning them up a bit. 
 - II. For the **climate** data, there are two tasks which need to be done:
@@ -79,7 +88,7 @@ climate$PRCP([climate$PRCP==99.9])<-0
 
 - III. For the **geneseeallm** data, you would need to extract only the columns of "**peak_dt**" (date) and "**peak_va**" (peak flow).
 
-----------
+---
 
 
 
