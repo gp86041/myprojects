@@ -68,7 +68,7 @@ Now you are ready to organize the data.
 
 ---
 
-### Section 3. Data Organization
+### Section 3. Data organization
 
 Here we are going to organize our data before the analysis.
 
@@ -88,7 +88,32 @@ climate$PRCP([climate$PRCP==99.9])<-0
 
 - III. For the **geneseeallm** data, you would need to extract only the columns of "**peak_dt**" (date) and "**peak_va**" (peak flow).
 
+```{.r}
+#III
+geneseeallm<-data.frame(geneseeallm$peak_dt, geneseeallm$peak_va)
+```
 ---
+### Section 4. Building analysis function.
+
+Here we are going to build our correlation function between cumulative rainfall and annual peak flow step-by-step.
+
+- I. Cumulative precipitation using moving sum function.
+
+```{.r}
+movsum<-function(x){
+  filter(x,rep(1,nn),sides=1)
+}
+```
+
+Here we used **filter** function, it applies a moving sum function over a time series. For example, if you have a list of data like 1,1,1,1,1,1,1,1,1, you want to apply a moving sum at a window of 3 records, and you only care about all data past the record of interest. You can write it below:
+
+```{.r}
+filter(rep(1,9),rep(1,3),side=1)
+```
+
+This will transform the original data from 1,1,1,1,1,1,1,1,1 to NA,NA,3,3,3,3,3,3,3. Hope you get what I mean here.
+
+- II. Alright, after building the moving sum function, we can start applying the movesum function to the precip function.
 
 
 
