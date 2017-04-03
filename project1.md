@@ -1,3 +1,5 @@
+[TOC]
+
 ## Project 1 - How does Dams change river hydrology? (Done in R), [Source Code](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1.R)
 
 
@@ -114,6 +116,7 @@ filter(rep(1,9),rep(1,3),side=1)
 This will transform the original data from 1,1,1,1,1,1,1,1,1 to NA,NA,3,3,3,3,3,3,3. Hope you get what I mean here.
 
 - II. Alright, after building the moving sum function, we can start applying the movesum function to the precip function.
+
 
 
 
