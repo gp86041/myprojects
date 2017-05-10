@@ -1,6 +1,6 @@
 # Welcome to Jeff Pu's Project (a.k.a. Coding For Fun) Gallery! 
 >Here is where you can see a list of coding tools I developed for various purposes.
->Last Updated 12/15/2016, While it is freaking snowing outside like crazy!!!
+>Last Updated 05/10/2017. Summer is upon us!!!
 
 ---
 ---
