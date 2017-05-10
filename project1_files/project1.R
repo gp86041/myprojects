@@ -22,8 +22,8 @@ test2[is.na(test2)]<-0
 test3<-cor(test2,method="spearman")
 
 
-print(test2)
-#print(test3[2,3])
+#print(test2)
+print(test3[2,3])
 }
 
 

@@ -1,5 +1,3 @@
-[TOC]
-
 ## Project 1 - How does Dams change river hydrology? (Done in R), [Source Code](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1.R)
 
 
@@ -10,6 +8,10 @@
 - **PLEASE note: you would need some minimum R and R Studio knowledge to use this tool.**
 
 ---
+
+
+----------
+
 
 ### Section 1. Getting Farmiliar with the site
 
@@ -24,6 +26,10 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
 ---
+
+
+----------
+
 
 ### Section 2. Getting data input. ###
 ### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to Section 4. ###
@@ -70,6 +76,10 @@ Now you are ready to organize the data.
 
 ---
 
+
+----------
+
+
 ### Section 3. Data organization
 
 Here we are going to organize our data before the analysis.
@@ -94,10 +104,17 @@ climate$PRCP([climate$PRCP==99.9])<-0
 #III
 geneseeallm<-data.frame(geneseeallm$peak_dt, geneseeallm$peak_va)
 ```
----
-### Section 4. Building analysis function.
 
-Here we are going to build our correlation function between cumulative rainfall and annual peak flow step-by-step.
+-------
+
+
+----------
+
+
+### Section 4. Building analysis functions (two functions total).
+
+####**Function 1.**
+First, we are going to build our correlation function between cumulative rainfall and annual peak flow step-by-step.
 
 - I. Cumulative precipitation using moving sum function.
 
@@ -107,7 +124,7 @@ movsum<-function(x){
 }
 ```
 
-Here we used **filter** function, it applies a moving sum function over a time series. For example, if you have a list of data like 1,1,1,1,1,1,1,1,1, you want to apply a moving sum at a window of 3 records, and you only care about all data past the record of interest. You can write it below:
+Here we used **filter** function, it applies a moving sum function over a time series. For example, if you have a list of data like 1,1,1,1,1,1,1,1,1, you want to apply a moving sum at a window of 3 records, and you only care about all data past the record of interest. **x** is the number of observations before the data you would want to sum up. You can write it below:
 
 ```{.r}
 filter(rep(1,9),rep(1,3),side=1)
@@ -115,8 +132,71 @@ filter(rep(1,9),rep(1,3),side=1)
 
 This will transform the original data from 1,1,1,1,1,1,1,1,1 to NA,NA,3,3,3,3,3,3,3. Hope you get what I mean here.
 
-- II. Alright, after building the moving sum function, we can start applying the movesum function to the precip function.
+- II. Alright, after building the moving sum function, we can start applying the movesum function to the precip data.
 
+```{.r}
+test<-data.frame(climate[,1],as.numeric(movsum(climate[,2])))
+```
+
+**test** is the first stage "data holder" of the function, for holding the data after applying the movesum function. **test** data has two columns, the first column is the time of the precipitation from the original precip record. The second column is the data output from the original precip.
+
+- III. Match the cumulative summed data with the peak flow data and getting rid of NA values. 
+
+```{.r}
+test2<-data.frame(genesseall,test[match(genesseall[,1],climate[,1]),2])
+
+test2[is.na(test2)]<-0
+```
+
+**test2** is the second data holder to combine the peakflow data and the move summed data, this combination was done through using the **match** function, as well as using the **[]**. For NA values, we replaced them with 0s. Moving sum can not be carried out with NA values.
+
+- IV. Conducting correlation test. 
+
+```{.r}
+test3<-cor(test2, method="spearman")
+```
+
+**test3** is the third data holder for storing results from the correlation test. We did assume that either the peakflow or cumulative rainfall is non-normal distribution. Thus, we used the spearman correlation.
+
+- IV. Print results. 
+
+```{.r}
+print(test3[2,3])
+```
+
+Since **test3** hold the results of the correlations, we can then extract the value of how many days was cumulated and the correlation values.  
+
+- IV. Combine all components of **function 1**. 
+
+```{.r}
+tf<-function(nn){
+movsum<-function(x){
+  filter(x,rep(1,nn),sides=1)
+}
+
+test<-data.frame(climate[,1],
+            as.numeric(movsum(climate[,2])))
+
+
+test2<-data.frame(genesseall,
+                  test[match(genesseall[,1],climate[,1]),2])
+
+test2[is.na(test2)]<-0
+
+test3<-cor(test2,method="spearman")
+#test3<-rcorr(as.matrix(test2), type="spearman")$P[2,3]
+
+#print(test2)
+print(test3[2,3])
+}
+```
+You will notice that **function 1** has another function inside of it to calculate the move sum. This not only save spaces, but also combines them into one powerful correlation function. 
+
+
+----------
+
+
+####Function 2.
 
 
 
