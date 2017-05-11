@@ -25,7 +25,6 @@
 ----------
 
 ### <a name="h1"></a> Section 1. Getting Familiar with the site 
-## [Back to Overview](#h0)
 
 According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
 
@@ -38,13 +37,12 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1V3AqSlnYUAsSHSV4Pq100ZS-TYQ" width="300" height="300"></iframe>
 
 ---
-
+#### [Back to Overview](#h0)
 
 ----------
 
 
 ### <a name="h2"></a> Section 2. Getting data input ###
-## [Back to Overview](#h0)
 ### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to Section 4. ###
 
 **USGS Peak Flow Data**
@@ -88,13 +86,12 @@ View(project1_climatel)
 Now you are ready to organize the data.
 
 ---
-
+#### [Back to Overview](#h0)
 
 ----------
 
 
 ### <a name="h3"></a> Section 3. Data organization
-## [Back to Overview](#h0)
 
 Here we are going to organize our data before the analysis.
 
@@ -120,13 +117,12 @@ geneseeallm<-data.frame(geneseeallm$peak_dt, geneseeallm$peak_va)
 ```
 
 -------
-
+#### [Back to Overview](#h0)
 
 ----------
 
 
 ### <a name="h4"></a> Section 4. Building analysis functions (two functions total).
-## [Back to Overview](#h0)
 
 ####**Function 1.**
 
@@ -247,7 +243,7 @@ tf2<-function(nn){
 **Function 2** is named after **tf2**, in a way, it is very similar to **function 1**, the only difference is that **function 2** will print out p values instead of correlation values. P values will help us determine if the correlation values are significant or not.
 
 ---
-
+#### [Back to Overview](#h0)
 
 ----------
 
@@ -255,7 +251,6 @@ tf2<-function(nn){
 ......Phew, still with me? Almost there.
 
 ### <a name="h5"></a> Section 5. Applying the functions and graph results
-## [Back to Overview](#h0)
 
 There are many ways of applying functions in R. Here we can apply **tf** and **tf2** using the **mapply** function. What **mapply** does is essentially generating a new table of inputs and outputs of a function of your interest. 
 
@@ -295,13 +290,12 @@ mapply(tf2,2:365) #p values of correlation from 2 to 365 days precipitation cumu
 ```
 
 ---
-
+#### [Back to Overview](#h0)
 
 ----------
 
 
 ### <a name="h6"></a> Section 6. Plotting results
-## [Back to Overview](#h0)
 
 What's really great about R is that you can super compact everything together. I have mentioned that before you can embed one function in another function. Here, we can embed the results of the **mapply** in the plotting function, for example:
 
@@ -349,13 +343,12 @@ The plot will look like this:
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/figure_output.jpeg">
 
 ---
-
+#### [Back to Overview](#h0)
 
 ----------
 
 
 ### <a name="h7"></a> Section 7. Interpreting results
-## [Back to Overview](#h0)
 
 In out first plot (top plot in the figure above). What is very very interesting here is that you can see that the correlation shifts both in the x and y axises. On the x-axis, we see the before dam section has stronger correlation around 100 days, after dam section has a stronger correlation around 200 days. On y-axis, maximum correlation is about 0.5 for before dam section, maximum correlation is about 0.2 for after dam section. 
 
@@ -400,5 +393,7 @@ TukeyHSD(fit) #post hoc anova
 The result p value is 2.96E-7. This means the change in peak flow is statistically significant. When applying post-hoc anova, we see that the dam has statically significantly (p<0.05) reduce the peak flow at Rochester by an average of 6055.36 cfs with a 95% confidence interval of 3892.74 cfs to 8217.97 cfs. 
 
 ---
+#### [Back to Overview](#h0)
+-----
 
 [Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
