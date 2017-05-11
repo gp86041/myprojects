@@ -18,7 +18,7 @@
 3. [Third Example](#a-2)
 
 
-### Section 1. Getting Familiar with the site <a name="h1"></a>
+### <a name="h1"></a> Section 1. Getting Familiar with the site
 
 According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
 
