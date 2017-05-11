@@ -114,6 +114,7 @@ geneseeallm<-data.frame(geneseeallm$peak_dt, geneseeallm$peak_va)
 ### Section 4. Building analysis functions (two functions total).
 
 ####**Function 1.**
+
 First, we are going to build our correlation function between cumulative rainfall and annual peak flow step-by-step.
 
 - I. Cumulative precipitation using moving sum function.
@@ -192,11 +193,145 @@ print(test3[2,3])
 ```
 You will notice that **function 1** has another function inside of it to calculate the move sum. This not only save spaces, but also combines them into one powerful correlation function. 
 
+We named **function 1** with the name **tf**, so when we call this function later, we can just type in following to get a list of correlation numbers based on the number of days you need to cumulate the precipitation: 
+```{.r}
+tf( number of days you need to accumulate precipitation ). 
+```
+
 
 ----------
 
 
-####Function 2.
+####**Function 2**.
+
+```{.r}
+install(Hmisc)
+library(Hmisc) #load the Hmisc package
+tf2<-function(nn){
+  movsum<-function(x){
+    filter(x,rep(1,nn),sides=1)
+  }
+  
+  test<-data.frame(climate[,1],
+                   as.numeric(movsum(climate[,2])))
+  
+  
+  test2<-data.frame(genesseall,
+                    test[match(genesseall[,1],climate[,1]),2])
+  
+  test2[is.na(test2)]<-0
+  
+  #test3<-cor(test2,method="spearman")
+  test3<-rcorr(as.matrix(test2), type="spearman")$P[2,3] #print p value
+  
+  #print(test2)
+  print(test3)
+}
+```
+
+**Function 2** is named after **tf2**, in a way, it is very similar to **function 1**, the only difference is that **function 2** will print out p values instead of correlation values. P values will help us determine if the correlation values are significant or not.
+
+---
+
+
+----------
+
+
+......Phew, still with me? Almost there.
+
+### Section 5. Applying the functions and graph results.
+
+There are many ways of applying functions in R. Here we can apply **tf** and **tf2** using the **mapply** function. What **mapply** does is essentially generating a new table of inputs and outputs of a function of your interest. 
+
+like so:
+
+|input|output|
+|---|---|
+|input1|output1|
+|input2|output2|
+|input3|output3|
+|...|...|
+
+In our example the output table for **tf** will look like this:
+
+|number of days <br> for precipitation <br> cumulation|correlation|
+|---|---|
+|2 days|...|
+|3 days|...|
+|4 days|...|
+|...|...|
+
+In our example the output table for **tf2** will look like this:
+
+|number of days <br> for precipitation <br> cumulation|p values <br> of correlation|
+|---|---|
+|2 days|...|
+|3 days|...|
+|4 days|...|
+|...|...|
+
+So, we can use the following code to cumulate the precipitation and produce the correlation from **tf** function and produce p values of correlation from **tf2** function.
+
+```{.r}
+mapply(tf,2:365) #correlation values from 2 to 365 days precipitation cumulation
+
+mapply(tf2,2:365) #p values of correlation from 2 to 365 days precipitation cumulation
+```
+
+---
+
+
+----------
+
+
+### Section 6. Plotting results.
+
+
+What's really great about R is that you can super compact everything together. I have mentioned that before you can embed one function in another function. Here, we can embed the results of the **mapply** in the plotting function, for example:
+
+```{.r}
+plot(mapply(tf2,2:365),.....)
+```
+
+We can write out the plotting result from both **tf** and **tf2** fully as such, remember, we will separate the data into two sections (*before the dam was build* in black and *after the dam was dam was built* in red):
+
+```{.r}
+par(mfrow=c(2,1)) # top and bottom combined plot
+
+#plot for tf
+genesseall<-genesseallm[1:24,] #before dam section
+
+plot(mapply(tf,2:365),main='Precipitation Cumulation Period vs. Correlation Result with Peak Flow',
+     ylab='Corellation Result',
+     xlab='Precipitation Cumulation Period (days)')
+
+genesseall<-genesseallm[28:90,] #after dam section
+
+points(mapply(tf,2:365),col='red')
+legend('topright',c('before_dam','after_dam'),
+       pch=1,
+       col=c('black','red'))
+#################
+#plot for tf2
+genesseall<-genesseallm[1:24,] #before dam section
+plot(mapply(tf2,2:365),main='P values',
+     ylab='P values',
+     xlab='Precipitation Cumulation Period (days)',
+     ylim=c(0,0.1))
+
+genesseall<-genesseallm[28:90,] #after dam section
+
+points(mapply(tf2,2:365),col='red')
+#abline(h=0.1)
+legend('topright',c('before_dam','after_dam'),
+       pch=1,
+       col=c('black','red'))
+polygon(c(-100,400,400,-100),c(0.05,0.05,0,0), col=rgb(0.22, 0.22, 0.22,0.5)) #highlight the area of p values where the correlations are significant
+```
+
+The plot will look like this:
+
+
 
 
 
