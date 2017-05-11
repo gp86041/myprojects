@@ -331,9 +331,21 @@ polygon(c(-100,400,400,-100),c(0.05,0.05,0,0), col=rgb(0.22, 0.22, 0.22,0.5)) #h
 
 The plot will look like this:
 
+<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/figure_output.jpeg">
+
+---
 
 
+----------
 
+
+### Section 7. Interpreting results.
+
+In out first plot (top plot in the figure above). What is very very interesting here is that you can see that the correlation shift both in the x and y axises. On the x axis, we see the before dam section has stronger correlation around 100 days, after dam section has has stronger correlation around 200 days. On y axis, maximum correlation is about 0.5 for before dam section, maximum correlation is about 0.2 for after dam section. 
+
+Which mean that by constructing the Mount Morris Dam, peakflow/flooding at Rochester, NY is much less associated with the cumulative rainfall. Peakflow has stronger correlation with a much delayed cumulative rainfall, from approximately 100 days (p<0.05, from bottom plot, **p<0.05 means it is statically significant**) to 200 days (p<0.05, from bottom plot), and the magnitude of this association is reduced as well. 
+
+All in all, this means Mount Morris Dam has successfully delayed the rainfall-induced peakflow/flood to arrive at Rochester, NY from approximately 100 days (p<0.05) to 200 days (p<0.05). This give more time for rainfall generated flow to flow downstream and thus reduce the chance of flooding. 
 
 More to come....
 
