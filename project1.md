@@ -352,38 +352,295 @@ Another way of analyzing the flow at Rochester is through comparing the flows be
 
 Let's start by using plotting a box plot:
 
+```{.R}
+before<-genesseallm[1:24,][,2] #before dam section
+after<-genesseallm[28:90,][,2] #after dam section
+boxplot(before,after,xaxt = "n",ylab="peakflow (cfs)")
+axis(1,at=1:2,labels=c('before dam construction','after dam construction'))
+```
 
+Resulting plot will look like this:
 
+<img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/figure_output2.jpeg">
 
-Anova is famously known for comparing two treatment values. We can use it here to compare how does the construction of a dam (as a factor of treatment) change river peak flow at Rochester, NY. 
+What we can see is that the dam has drastically reduced the overall peak flow at Rochester, NY by almost 5000 cfs. There is actually more variability in after dam section of data in this plot, but we do need to be careful that after dam section have 63 observations, as before dam has only 24. Thus, in order to compare if the two datasets are completely different or not, we have to use ANOVA.
+
+Anova is famously known for comparing two treatment values. We can use it here to compare if the construction of a dam (as a factor of treatment) has statistically significantly changed river peak flow at Rochester, NY. 
 
 We can use the following code to do this:
 
+```{.R}
+Data <- data.frame(
+  Y=c(before,after),
+  Site =factor(rep(c("before", "after"), times=c(length(before), length(after))))
+)
 
+fit<-aov(Y~Site,data=Data)
+summary(fit)
+TukeyHSD(fit) #post hoc anova
+```
+
+The result p value is 2.96E-7. This means the change in peak flow is statistically significant. When applying post-hoc anova, we see that the dam has statically significantly (p<0.05) reduce the peak flow at Rochester by an average of 6055.36 cfs with a 95% confidence interval of 3892.74 cfs to 8217.97 cfs. 
 
 ---
 [Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
-
-2
-2
-2
-2
-
-
-2
-
-
-2
-
-
-2
-2
-2
-2
-2
+4
 
 
 
 
 
-2
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
