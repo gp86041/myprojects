@@ -11,8 +11,6 @@
 
 ----------
 
-[Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
-
 1. [Section 1. Getting Familiar with the site](#h1)
 2. [Example2](#h2)
 3. [Third Example](#a-2)
@@ -388,3 +386,5 @@ TukeyHSD(fit) #post hoc anova
 The result p value is 2.96E-7. This means the change in peak flow is statistically significant. When applying post-hoc anova, we see that the dam has statically significantly (p<0.05) reduce the peak flow at Rochester by an average of 6055.36 cfs with a 95% confidence interval of 3892.74 cfs to 8217.97 cfs. 
 
 ---
+
+[Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
