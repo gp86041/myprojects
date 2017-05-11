@@ -19,6 +19,9 @@
 6. [Section 6. Plotting results](#h6)
 7. [Section 7. Interpreting results](#h7)
 
+---
+
+----------
 
 ### <a name="h1"></a> Section 1. Getting Familiar with the site
 
