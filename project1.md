@@ -1,8 +1,8 @@
-## Project 1 - How does Dams change river hydrology? (Done in R), [Source Code](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1.R)
+## Project 1 - How do Dams change river hydrology? (Done in R), [Source Code](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1.R)
 
 
 - Project/Tool Purpose: Discover your dam of interest and how they are changing ur river flow.
-- Project/Tool {Input} and [Output]: {USGS Gage Peak Flow Data, NOAA Rain Gage Data} --> [how cumulative rainfall effect river peak flow]
+- Project/Tool {Input} and [Output]: {USGS Gage Peak Flow Data @ Rochester, NY, NOAA Rain Gage Data} --> [how cumulative rainfall is associated with river peak flow + how dam construction change river flow]
 - Example Site Location: Genesee River
 - Project Duration: 1926-2015
 - **PLEASE note: you would need some minimum R and R Studio knowledge to use this tool.**
@@ -13,7 +13,7 @@
 ----------
 
 
-### Section 1. Getting Farmiliar with the site
+### Section 1. Getting Familiar with the site
 
 According to [wiki](https://en.wikipedia.org/wiki/Mount_Morris_Dam), Mount Morris Dam was built between 1948 and 1952. Here are some great pictures of this magnificant dam:
 
@@ -36,26 +36,26 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 
 **USGS Peak Flow Data**
 
-- I. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peakflow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
-- II. Download all peakflow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
-- III. Once the data is downloaded, mannully delete all metadata which starts with the symbole "#". You can do this in a text editor or in R Studio directly. Rename your file as '**project1_genesseall**'.
-- VI. Now, the peakflow data is ready for input, you can import the text file by typing below in R:
+- I. Head over to the [USGS site](https://nwis.waterdata.usgs.gov/ny/nwis/peak/?site_no=04231600&agency_cd=USGS), and this page displays the annual peak flow (which is a fancy word for the highest flow in a given duration) from 1785 to 2015. 
+- II. Download all peak flow data by clicking on the "Tab-separated file" option or click [here](https://nwis.waterdata.usgs.gov/ny/nwis/peak?site_no=04231600&agency_cd=USGS&format=rdb).
+- III. Once the data is downloaded, manually delete all metadata which starts with the symbol "#". You can do this in a text editor or in R-Studio directly. Rename your file as '**project1_genesseall**'.
+- VI. Now, the peak flow data is ready for input, you can import the text file by typing below in R:
 
 ```{.r}
 genesseallm <- read.delim("~/Downloads/project1_genesseall.txt"); ##Remember to change your file path accordingly
-##here we rename out peakflow data as "genesseallm"
-View(peakflow)
+##here we rename out peak flow data as "genesseallm"
+⧸⧸View(peakflow
 ```
 
-- V. Upon excuting the codes above, you will see something like this (sorry it is shrinked, but hopefully you get the idea):
+- V. Upon executing the codes above, you will see something like this (sorry it is shrunk, but hopefully you get the idea):
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/peakflow_input.png" height="200" width="1300">
 
 - VI. The data we will need is in the columns of "**peak_dt**" (date) and "**peak_va**" (peak flow).
 
 **NOAA Precipitation Data (at Rochester Airport)**
 
-- I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the avalible data from the Rochester Airport, select the option with "Comma Delimited". 
-- II. Download all weather gage data by clicking on the text file (you will see a similar screen like below (click on image to zoom in):
+- I. Head over to the [NCDC site for daily climate](https://www7.ncdc.noaa.gov/CDO/cdodateoutmod.cmd?p_ndatasetid=10&p_cqueryby=ENTIRE&datasetabbv=GSOD&p_asubqueryitems=99999914768&p_asubqueryitems=72529014768), and follow the instructions on this page to select all of the available data from the Rochester Airport, select the option with "Comma Delimited". 
+- II. Download all weather gage data by clicking on the text file (you will see a similar screen like below (click on the image to zoom in):
 
 <img src="https://gp86041.github.io/gepuprojects.github.io/project1_files/location.jpg" height="300" width="400">
 
@@ -65,10 +65,10 @@ View(peakflow)
 #install package 'readr' before running the script below
 library(readr)
 climate <- read_csv("C:/Users/jeffj/Downloads/project1_climate.txt") ##Remember to change your file path accordingly
-##here we rename out peakflow data as "climate"
+##here we rename out peak flow data as "climate"
 View(project1_climatel)
 ```
-- V. Upon excuting the codes above, you will be able to import the gage data from the airport.
+- V. Upon executing the codes above, you will be able to import the gage data from the airport.
 
 - VI. The data we will need is in the columns of "**YEARMODA**" (date) and "**PRCP**" (precipitation in inches).
 
@@ -84,10 +84,10 @@ Now you are ready to organize the data.
 
 Here we are going to organize our data before the analysis.
 
-- I. Once you have both of your peakflow and precipitation data ready, let's start organizing the data by cleaning them up a bit. 
+- I. Once you have both of your peak flow and precipitation data ready, let's start organizing the data by cleaning them up a bit. 
 - II. For the **climate** data, there are two tasks which need to be done:
-	- II.I extract only "**YEARMODA**" (date) and "**PRCP**" (precipitation) columns.
-	- II.II remove the last "G" symbol in the **PRCP** column, and then replace all 99.9 values with 0 values (replace with 0 instead of null because it will be easier for later correlation analysis).
+- II.I extract only "**YEARMODA**" (date) and "**PRCP**" (precipitation) columns.
+- II.II remove the last "G" symbol in the **PRCP** column, and then replace all 99.9 values with 0 values (replace with 0 instead of null because it will be easier for later correlation analysis).
 ```{.r}
 #II.I
 climate<-data.frame(climate$YEARMODA, climate$PRCP)
@@ -121,7 +121,7 @@ First, we are going to build our correlation function between cumulative rainfal
 
 ```{.r}
 movsum<-function(x){
-  filter(x,rep(1,nn),sides=1)
+filter(x,rep(1,nn),sides=1)
 }
 ```
 
@@ -141,7 +141,7 @@ test<-data.frame(climate[,1],as.numeric(movsum(climate[,2])))
 
 **test** is the first stage "data holder" of the function, for holding the data after applying the movesum function. **test** data has two columns, the first column is the time of the precipitation from the original precip record. The second column is the data output from the original precip.
 
-- III. Match the cumulative summed data with the peak flow data and getting rid of NA values. 
+- III. Match the cumulatively summed data with the peak flow data and getting rid of NA values. 
 
 ```{.r}
 test2<-data.frame(genesseall,test[match(genesseall[,1],climate[,1]),2])
@@ -149,7 +149,7 @@ test2<-data.frame(genesseall,test[match(genesseall[,1],climate[,1]),2])
 test2[is.na(test2)]<-0
 ```
 
-**test2** is the second data holder to combine the peakflow data and the move summed data, this combination was done through using the **match** function, as well as using the **[]**. For NA values, we replaced them with 0s. Moving sum can not be carried out with NA values.
+**test2** is the second data holder to combine the peak flow data and the move summed data, this combination was done through using the **match** function, as well as using the **[]**. For NA values, we replaced them with 0s. Moving sum can not be carried out with NA values.
 
 - IV. Conducting correlation test. 
 
@@ -157,7 +157,7 @@ test2[is.na(test2)]<-0
 test3<-cor(test2, method="spearman")
 ```
 
-**test3** is the third data holder for storing results from the correlation test. We did assume that either the peakflow or cumulative rainfall is non-normal distribution. Thus, we used the spearman correlation.
+**test3** is the third data holder for storing results from the correlation test. We did assume that either the peak flow or cumulative rainfall is non-normal distribution. Thus, we used the spearman correlation.
 
 - IV. Print results. 
 
@@ -191,7 +191,7 @@ test3<-cor(test2,method="spearman")
 print(test3[2,3])
 }
 ```
-You will notice that **function 1** has another function inside of it to calculate the move sum. This not only save spaces, but also combines them into one powerful correlation function. 
+You will notice that **function 1** has another function inside of it to calculate the move sum. This not only saves spaces, but also combines them into one powerful correlation function. 
 
 We named **function 1** with the name **tf**, so when we call this function later, we can just type in following to get a list of correlation numbers based on the number of days you need to cumulate the precipitation: 
 ```{.r}
@@ -222,7 +222,7 @@ tf2<-function(nn){
   test2[is.na(test2)]<-0
   
   #test3<-cor(test2,method="spearman")
-  test3<-rcorr(as.matrix(test2), type="spearman")$P[2,3] #print p value
+  test3<-rcorr(as.matrix(test2), type="spearman")$P[2,3]
   
   #print(test2)
   print(test3)
@@ -296,37 +296,36 @@ plot(mapply(tf2,2:365),.....)
 We can write out the plotting result from both **tf** and **tf2** fully as such, remember, we will separate the data into two sections (*before the dam was build* in black and *after the dam was dam was built* in red):
 
 ```{.r}
-par(mfrow=c(2,1)) # top and bottom combined plot
+par(mfrow=c(2,1))
 
-#plot for tf
-genesseall<-genesseallm[1:24,] #before dam section
+genesseall<-genesseallm[1:24,]
 
 plot(mapply(tf,2:365),main='Precipitation Cumulation Period vs. Correlation Result with Peak Flow',
      ylab='Corellation Result',
      xlab='Precipitation Cumulation Period (days)')
 
-genesseall<-genesseallm[28:90,] #after dam section
+genesseall<-genesseallm[28:90,]
 
 points(mapply(tf,2:365),col='red')
 legend('topright',c('before_dam','after_dam'),
        pch=1,
        col=c('black','red'))
 #################
-#plot for tf2
-genesseall<-genesseallm[1:24,] #before dam section
+genesseall<-genesseallm[1:24,]
 plot(mapply(tf2,2:365),main='P values',
      ylab='P values',
      xlab='Precipitation Cumulation Period (days)',
      ylim=c(0,0.1))
 
-genesseall<-genesseallm[28:90,] #after dam section
+genesseall<-genesseallm[28:90,]
 
 points(mapply(tf2,2:365),col='red')
 #abline(h=0.1)
 legend('topright',c('before_dam','after_dam'),
        pch=1,
        col=c('black','red'))
-polygon(c(-100,400,400,-100),c(0.05,0.05,0,0), col=rgb(0.22, 0.22, 0.22,0.5)) #highlight the area of p values where the correlations are significant
+polygon(c(-100,400,400,-100),c(0.05,0.05,0,0), col=rgb(0.22, 0.22, 0.22,0.5))
+#highlight the area of p values where the correlations are significant
 ```
 
 The plot will look like this:
@@ -341,17 +340,50 @@ The plot will look like this:
 
 ### Section 7. Interpreting results.
 
-In out first plot (top plot in the figure above). What is very very interesting here is that you can see that the correlation shift both in the x and y axises. On the x axis, we see the before dam section has stronger correlation around 100 days, after dam section has has stronger correlation around 200 days. On y axis, maximum correlation is about 0.5 for before dam section, maximum correlation is about 0.2 for after dam section. 
+In out first plot (top plot in the figure above). What is very very interesting here is that you can see that the correlation shifts both in the x and y axises. On the x-axis, we see the before dam section has stronger correlation around 100 days, after dam section has a stronger correlation around 200 days. On y-axis, maximum correlation is about 0.5 for before dam section, maximum correlation is about 0.2 for after dam section. 
 
-Which mean that by constructing the Mount Morris Dam, peakflow/flooding at Rochester, NY is much less associated with the cumulative rainfall. Peakflow has stronger correlation with a much delayed cumulative rainfall, from approximately 100 days (p<0.05, from bottom plot, **p<0.05 means it is statically significant**) to 200 days (p<0.05, from bottom plot), and the magnitude of this association is reduced as well. 
+Which mean that by constructing the Mount Morris Dam, peak flow/flooding at Rochester, NY is much less associated with the cumulative rainfall. Peak flow has a stronger correlation with a much delayed cumulative rainfall, from approximately 100 days (p<0.05, from bottom plot, **p<0.05 means it is statically significant**) to 200 days (p<0.05, from bottom plot), and the magnitude of this association is reduced as well. 
 
-All in all, this means Mount Morris Dam has successfully delayed the rainfall-induced peakflow/flood to arrive at Rochester, NY from approximately 100 days (p<0.05) to 200 days (p<0.05). This give more time for rainfall generated flow to make itself downstream and thus reduce the chance of flooding. Brilliant! 
+All in all, this means Mount Morris Dam has successfully delayed the rainfall-induced peak flow/flood to arrive at Rochester, NY from approximately 100 days (p<0.05) to 200 days (p<0.05). The dam gives more time for rainfall generated flow to make itself downstream and thus reduce the chance of flooding. Brilliant! 
+
+### Mean and Variance Changes in Flow Alone (Bonus)
+
+Another way of analyzing the flow at Rochester is through comparing the flows before and after the dam constructions. 
+
+Let's start by using plotting a box plot:
 
 
-### Mean and Variance Changes in Flow
 
-More to come....
 
----
+Anova is famously known for comparing two treatment values. We can use it here to compare how does the construction of a dam (as a factor of treatment) change river peak flow at Rochester, NY. 
+
+We can use the following code to do this:
+
+
+
 ---
 [Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
+
+2
+2
+2
+2
+
+
+2
+
+
+2
+
+
+2
+2
+2
+2
+2
+
+
+
+
+
+2
