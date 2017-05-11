@@ -345,11 +345,12 @@ In out first plot (top plot in the figure above). What is very very interesting 
 
 Which mean that by constructing the Mount Morris Dam, peakflow/flooding at Rochester, NY is much less associated with the cumulative rainfall. Peakflow has stronger correlation with a much delayed cumulative rainfall, from approximately 100 days (p<0.05, from bottom plot, **p<0.05 means it is statically significant**) to 200 days (p<0.05, from bottom plot), and the magnitude of this association is reduced as well. 
 
-All in all, this means Mount Morris Dam has successfully delayed the rainfall-induced peakflow/flood to arrive at Rochester, NY from approximately 100 days (p<0.05) to 200 days (p<0.05). This give more time for rainfall generated flow to flow downstream and thus reduce the chance of flooding. 
+All in all, this means Mount Morris Dam has successfully delayed the rainfall-induced peakflow/flood to arrive at Rochester, NY from approximately 100 days (p<0.05) to 200 days (p<0.05). This give more time for rainfall generated flow to make itself downstream and thus reduce the chance of flooding. Brilliant! 
 
-More to come....
 
 ### Mean and Variance Changes in Flow
+
+More to come....
 
 ---
 ---
