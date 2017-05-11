@@ -12,12 +12,12 @@
 ----------
 
 1. [Section 1. Getting Familiar with the site](#h1)
-2. [Example2](#h2)
-3. [Third Example](#h3)
-4. [Third Example](#h4)
-5. [Third Example](#h5)
-6. [Third Example](#h6)
-7. [Third Example](#h7)
+2. [Section 2. Getting data input](#h2)
+3. [Section 3. Data organization](#h3)
+4. [Section 4. Building analysis functions](#h4)
+5. [Section 5. Applying the functions and graph results](#h5)
+6. [Section 6. Plotting results](#h6)
+7. [Section 7. Interpreting results](#h7)
 
 
 ### <a name="h1"></a> Section 1. Getting Familiar with the site
@@ -38,7 +38,7 @@ Here is where everything is. **_Red_** label is the USGS flow gage station. **_B
 ----------
 
 
-### <a name="h2"></a> Section 2. Getting data input. ###
+### <a name="h2"></a> Section 2. Getting data input ###
 ### If you do not wish to go through this section, you can download data input for [peak flow](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_genesseall.csv) and [precipitation](https://gp86041.github.io/gepuprojects.github.io/project1_files/project1_climate.csv) directly. Then move on to Section 4. ###
 
 **USGS Peak Flow Data**
@@ -246,7 +246,7 @@ tf2<-function(nn){
 
 ......Phew, still with me? Almost there.
 
-### <a name="h5"></a> Section 5. Applying the functions and graph results.
+### <a name="h5"></a> Section 5. Applying the functions and graph results
 
 There are many ways of applying functions in R. Here we can apply **tf** and **tf2** using the **mapply** function. What **mapply** does is essentially generating a new table of inputs and outputs of a function of your interest. 
 
@@ -291,7 +291,7 @@ mapply(tf2,2:365) #p values of correlation from 2 to 365 days precipitation cumu
 ----------
 
 
-### <a name="h6"></a> Section 6. Plotting results.
+### <a name="h6"></a> Section 6. Plotting results
 
 
 What's really great about R is that you can super compact everything together. I have mentioned that before you can embed one function in another function. Here, we can embed the results of the **mapply** in the plotting function, for example:
@@ -345,7 +345,7 @@ The plot will look like this:
 ----------
 
 
-### <a name="h7"></a> Section 7. Interpreting results.
+### <a name="h7"></a> Section 7. Interpreting results
 
 In out first plot (top plot in the figure above). What is very very interesting here is that you can see that the correlation shifts both in the x and y axises. On the x-axis, we see the before dam section has stronger correlation around 100 days, after dam section has a stronger correlation around 200 days. On y-axis, maximum correlation is about 0.5 for before dam section, maximum correlation is about 0.2 for after dam section. 
 
