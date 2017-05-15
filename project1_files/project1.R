@@ -78,3 +78,21 @@ legend('topright',c('before_dam','after_dam'),
        pch=1,
        col=c('black','red'))
 polygon(c(-100,400,400,-100),c(0.05,0.05,0,0), col=rgb(0.22, 0.22, 0.22,0.5))
+
+
+###################
+#Flow Changes in boxplot
+before<-genesseallm[1:24,][,2]
+after<-genesseallm[28:90,][,2]
+boxplot(before,after,xaxt = "n",ylab="peakflow (cfs)")
+axis(1,at=1:2,labels=c('before dam construction','after dam construction'))
+
+#Flow Changes in annova
+Data <- data.frame(
+  Y=c(before,after),
+  Site =factor(rep(c("before", "after"), times=c(length(before), length(after))))
+)
+
+fit<-aov(Y~Site,data=Data)
+summary(fit)
+TukeyHSD(fit)
