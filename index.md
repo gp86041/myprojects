@@ -11,8 +11,6 @@
 ---
 All code in this repository are licenced under the MIT License.
 
-MIT License
-
 Copyright (c) 2017 Ge (Jeff) Pu
 
 
