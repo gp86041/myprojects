@@ -397,3 +397,9 @@ The result p value is 2.96E-7. This means the change in peak flow is statistical
 -----
 
 [Back to Main Page](https://gp86041.github.io/gepuprojects.github.io/)
+
+
+---
+MIT License
+
+Copyright (c) 2017 Ge (Jeff) Pu
