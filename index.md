@@ -8,6 +8,13 @@
 1. [Project 1 - How does Dams change river hydrology? (Done in R)](https://gp86041.github.io/gepuprojects.github.io/project1).
 2. More to come....
 
+---
+All code in this repository are licenced under the MIT License.
+
+MIT License
+
+Copyright (c) 2017 Ge (Jeff) Pu
+
 
 
 
