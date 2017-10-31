@@ -1,3 +1,4 @@
+#MIT License, Copyright (c) 2017 Ge (Jeff) Pu
 
 climate <- read.csv("project1_climate.csv")
 genesseallm <- read.csv("project1_genesseall.csv")
